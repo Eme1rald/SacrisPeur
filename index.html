@@ -6,14 +6,92 @@
 <title>Sacris Peur Download Center</title>
 <style>
     /* Your CSS styles here */
+    body {
+        font-family: Arial, sans-serif;
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+        margin: 0;
+    }
+
+    h1 {
+        background-color: #50C878; /* Emerald green */
+        padding: 10px;
+        margin-top: 0;
+    }
+
+    button {
+        padding: 10px 20px;
+        background-color: #50C878; /* Emerald green */
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        margin: 10px;
+        cursor: pointer;
+        transition: transform 0.5s;
+    }
+
+    button:hover {
+        transform: scale(1.1);
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    li {
+        display: inline-block;
+        margin: 10px;
+    }
+
+    footer {
+        background-color: #87CEEB; /* Sky blue */
+        color: #fff;
+        padding: 10px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .section {
+        display: none;
+    }
+
+    .show {
+        display: block;
+        animation: fly-in 1s;
+    }
+
+    @keyframes fly-in {
+        from {
+            transform: translateY(-100%);
+        }
+        to {
+            transform: translateY(0);
+        }
+    }
 </style>
 </head>
 <body>
     <h1>Sacris Peur Download Center</h1>
-    <a href="https://naijasermons.com.ng/" target="_blank"><button>Download Audio</button></a>
-    <a href="https://pdfdrive.com/" target="_blank"><button>Download PDF</button></a>
-    <button onclick="displayList('Video')">Download Video</button>
-    <ul id="download-list"></ul>
+    <button onclick="showSection('audio')">Download Audio</button>
+    <button onclick="showSection('pdf')">Download PDF</button>
+    <button onclick="showSection('video')">Download Video</button>
+
+    <div id="audio" class="section">
+        <a href="https://naijasermons.com.ng/" target="_blank"><button>Download Audio</button></a>
+    </div>
+
+    <div id="pdf" class="section">
+        <a href="https://pdfdrive.com/" target="_blank"><button>Download PDF</button></a>
+    </div>
+
+    <div id="video" class="section">
+        <button onclick="displayList('Video')">Download Video</button>
+        <ul id="download-list"></ul>
+    </div>
+
     <footer>
         Follow Sacris Peur on:
         <a href="#" class="social-icon">Facebook</a>
@@ -22,6 +100,15 @@
     </footer>
 
     <script>
+        function showSection(section) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(function(sec) {
+                sec.classList.remove('show');
+            });
+
+            document.getElementById(section).classList.add('show');
+        }
+
         function displayList(type) {
             const list = document.getElementById('download-list');
             list.innerHTML = ''; // Clear previous list
