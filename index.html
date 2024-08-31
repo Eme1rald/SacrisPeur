@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sacris Peur Download Center</title>
+<style>
+    body {
+        background-image: url('nature-picture.jpg');
+        background-size: cover;
+        font-family: Arial, sans-serif;
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+    }
+    h1 {
+        background-color: #50C878; /* Emerald green */
+        padding: 10px;
+        margin-top: 0;
+    }
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    li {
+        display: inline-block;
+        margin: 10px;
+    }
+    footer {
+        background-color: #87CEEB; /* Sky blue */
+        color: #fff;
+        padding: 10px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+</style>
+</head>
+<body>
+    <h1>Sacris Peur Download Center</h1>
+    <button onclick="displayList('Audio')">Download Audio</button>
+    <button onclick="displayList('PDF')">Download PDF</button>
+    <button onclick="displayList('Video')">Download Video</button>
+    <ul id="download-list"></ul>
+    <footer>
+        Follow Sacris Peur on:
+        <a href="#" class="social-icon">Facebook</a>
+        <a href="#" class="social-icon">Twitter</a>
+        <a href="#" class="social-icon">Instagram</a>
+    </footer>
+
+    <script>
+        function displayList(type) {
+            const list = document.getElementById('download-list');
+            list.innerHTML = ''; // Clear previous list
+
+            // Simulated list of items in alphabetical order
+            const items = ['Item A', 'Item B', 'Item C', 'Item D', 'Item E'];
+
+            items.sort(); // Sort items alphabetically
+
+            items.forEach(function(item) {
+                const li = document.createElement('li');
+                li.textContent = item + ' - ' + type;
+                list.appendChild(li);
+            });
+        }
+    </script>
+</body>
+</html>
